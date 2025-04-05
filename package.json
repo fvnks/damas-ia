@@ -1,0 +1,20 @@
+{
+  "name": "checkers-gemini",
+  "version": "1.0.0",
+  "description": "Juego de damas contra la IA de Google Gemini",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "damas",
+    "checkers",
+    "gemini",
+    "ia",
+    "juego"
+  ],
+  "author": "",
+  "license": "ISC"
+}

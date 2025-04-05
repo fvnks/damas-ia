@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Damas vs Gemini</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Damas vs Google Gemini</h1>
+      <div class="subtitle">Juega damas contra la IA de Google</div>
+    </header>
+
+    <div class="api-key-container">
+      <h3>API Key de Google Gemini</h3>
+      <input type="text" id="api-key-input" placeholder="Ingresa tu API key de Google Gemini" />
+      <button id="save-api-key-btn">Guardar API Key</button>
+      <div class="api-status">Estado: <span id="api-key-status">No configurada</span></div>
+    </div>
+
+    <div class="api-key-info">
+      <h3>Cómo obtener tu API Key:</h3>
+      <ol>
+        <li>Visita <a href="https://ai.google.dev/" target="_blank">Google AI Studio</a></li>
+        <li>Inicia sesión con tu cuenta de Google</li>
+        <li>Ve a la sección "API Keys"</li>
+        <li>Crea una nueva API Key</li>
+        <li>Copia la API Key y pégala arriba</li>
+      </ol>
+      <p>Tu API Key se guarda localmente en tu navegador y no se comparte con nadie.</p>
+    </div>
+
+    <div class="status-container">
+      <div id="status">Comienza un nuevo juego</div>
+      <div id="thinking" class="thinking hidden">Gemini está pensando...</div>
+    </div>
+
+    <button id="new-game-btn">Nuevo Juego</button>
+
+    <div class="game-container">
+      <div class="board-container">
+        <div id="board" class="board"></div>
+      </div>
+
+      <div class="info-container">
+        <div class="player-info">
+          <h2>Jugador (Blancas)</h2>
+          <div id="player-pieces">Piezas: 12</div>
+        </div>
+
+        <div class="ai-info">
+          <h2>Gemini (Negras)</h2>
+          <div id="ai-pieces">Piezas: 12</div>
+        </div>
+
+        <div class="game-status-box">
+          <h3>Leyenda</h3>
+          <div class="status-items">
+            <div class="status-item">
+              <span class="legend player"></span>
+              <span>Pieza normal (jugador)</span>
+            </div>
+            <div class="status-item">
+              <span class="legend ai"></span>
+              <span>Pieza normal (IA)</span>
+            </div>
+            <div class="status-item">
+              <span class="legend king"></span>
+              <span>Dama (rey)</span>
+            </div>
+            <div class="status-item">
+              <span class="legend required-capture"></span>
+              <span>Captura obligatoria</span>
+            </div>
+            <div class="status-item">
+              <span class="legend last-move"></span>
+              <span>Último movimiento</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rules">
+          <h3>Reglas de las Damas</h3>
+          <ul>
+            <li><strong>Objetivo:</strong> Capturar todas las piezas del oponente o bloquearlas para que no puedan moverse.</li>
+            <li><strong>Movimiento:</strong> Las piezas se mueven diagonalmente hacia adelante (las blancas hacia arriba, las negras hacia abajo) a casillas vacías vecinas.</li>
+            <li><strong>Captura:</strong> Se captura saltando por encima de una pieza enemiga a una casilla vacía. Las capturas son obligatorias.</li>
+            <li><strong>Dama/Rey:</strong> Cuando una pieza llega al extremo opuesto del tablero, se convierte en dama (rey) y puede moverse diagonalmente en cualquier dirección.</li>
+            <li><strong>Captura múltiple:</strong> Si después de una captura, la pieza puede realizar otra captura, debe hacerlo en el mismo turno.</li>
+          </ul>
+        </div>
+
+        <div id="tutorial" class="tutorial">
+          <h3>Cómo jugar</h3>
+          <div class="tutorial-steps">
+            <div class="tutorial-step">
+              <div class="tutorial-icon">1</div>
+              <div class="tutorial-text">
+                <strong>Selecciona una pieza</strong><br>
+                Haz clic en una de tus piezas blancas. Los posibles movimientos se mostrarán con círculos verdes.
+              </div>
+            </div>
+            <div class="tutorial-step">
+              <div class="tutorial-icon">2</div>
+              <div class="tutorial-text">
+                <strong>Mueve tu pieza</strong><br>
+                Arrastra la pieza o haz clic en uno de los círculos verdes para mover la pieza.
+              </div>
+            </div>
+            <div class="tutorial-step">
+              <div class="tutorial-icon">3</div>
+              <div class="tutorial-text">
+                <strong>Capturas obligatorias</strong><br>
+                Si puedes capturar una pieza enemiga, debes hacerlo. Estas piezas se resaltan con un borde rojo pulsante.
+              </div>
+            </div>
+            <div class="tutorial-step">
+              <div class="tutorial-icon">4</div>
+              <div class="tutorial-text">
+                <strong>Crear damas/reyes</strong><br>
+                Lleva tus piezas al otro extremo del tablero para convertirlas en damas. Las damas pueden moverse en cualquier dirección diagonal.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-gemini">
+          <h3>Acerca de Google Gemini</h3>
+          <p>Gemini es un modelo de IA multimodal de Google, diseñado para ser más flexible, multimodal y útil. En este juego, Gemini analiza el tablero y elige los mejores movimientos basándose en la posición actual.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Desarrollado para demostrar la integración de juegos con IA de Google Gemini</p>
+    </footer>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html> 
